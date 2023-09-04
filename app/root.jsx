@@ -1,11 +1,11 @@
 import {
     Meta,
     Links,
+    Outlet
 
 } from '@remix-run/react'
 
 import styles from './styles/index.css'
-
 
 
 export function meta() {
@@ -51,7 +51,7 @@ export default function App () {
     
     return (
         <Document>
-            <h1>Hello World!</h1>
+            <Outlet />
         </Document>
     )
 }
