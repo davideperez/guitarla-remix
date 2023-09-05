@@ -6,9 +6,7 @@ import {
     LiveReload
 
 } from '@remix-run/react'
-
 import styles from '~/styles/index.css'
-
 import Header from '~/components/header.jsx'
 import Footer from '~/components/footer.jsx'
 
@@ -69,7 +67,6 @@ function Document ({children}) {
                 <Header />
                 {children}
                 <Footer />
-
                 <Scripts />
                 <LiveReload />
             </body>
