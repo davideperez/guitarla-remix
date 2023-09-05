@@ -1,0 +1,76 @@
+/* Mobile */
+
+.guitars-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .guitars-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop */
+
+@media (min-width: 992px) {
+    .guitars-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/****** Guitarra  ******/
+
+.guitar {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.guitar .content {
+    padding: 1rem;
+}
+
+.guitar .content h3 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+
+.guitar .description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+    font-size: 1.8rem;
+}
+
+.guitar .price {
+    color: var(--primary);
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 900;
+}
+
+.guitar .guitar-link {
+    margin-top: 2rem;
+    display: block;
+    background-color: var(--black);
+    color: var(--white);
+    text-decoration: none;
+    padding: .5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 900;
+    transition-property: background-color;
+    transition-duration: 300ms;
+}
+
+.guitar .guitar-link:hover {
+    background-color: var(--primary);
+}
