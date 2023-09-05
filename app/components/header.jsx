@@ -1,10 +1,13 @@
 import { Link } from "@remix-run/react"
+import logo from '../../public/img/logo.svg'
 
 const Header = () => {
   return (
     <header className="header">
         <div className="contenedor barra">
-            <div className="logo"></div>
+            <Link to='/'>
+                <img className="logo" src={logo} alt="Logo" />
+            </Link>
         </div>
         <nav className="navegacion ">
             <Link to='/'>
