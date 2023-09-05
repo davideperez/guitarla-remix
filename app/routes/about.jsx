@@ -1,11 +1,25 @@
 import image from '../../public/img/nosotros.jpg'
+import styles from '~/styles/about.css'
 
 export function meta () {
   return [
-      {
-        title:'Guitar LA - About'
-      }
+      {title:'Guitar LA - About'},
+      {description: 'Guitars shop, music blog.'}
     ]
+}
+
+export function links () {
+  return [
+    {
+      rel:'stylesheet',
+      href: styles
+    },
+    {
+      rel: 'preload',
+      href: image,
+      as: 'image'
+    }
+  ]
 }
 
 const About = () => {

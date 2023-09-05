@@ -15,11 +15,9 @@ import Footer from '~/components/footer.jsx'
 export function meta() {
     return (
         [
-            {
-                charset: 'utf-8',
-                title: 'Guitar LA - Remix',
-                viewport: "width=device-width,intial-scale=1"
-            }
+            {charset: 'utf-8'},
+            {title: 'Guitar LA - Remix'},
+            {viewport: "width=device-width,intial-scale=1"}
         ]
     )
 }
