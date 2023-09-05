@@ -22,7 +22,7 @@
     max-width: 100%;
     height: auto;
   }
-  [class*="contenedor"], 
+  [class*="container"], 
   main {
     width: min(95%, 120rem);
     margin: 3rem auto;

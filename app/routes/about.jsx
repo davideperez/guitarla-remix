@@ -24,7 +24,7 @@ export function links () {
 
 const About = () => {
   return (
-    <main className="contenedor about">
+    <main className="container about">
       <h2 className="heading">About us</h2>
       <div className="content">
         <img src={image} alt="about us"/>
