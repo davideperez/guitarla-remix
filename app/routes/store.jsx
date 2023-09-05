@@ -1,18 +1,9 @@
+import { getGuitars } from "../models/guitars.server"
+
 export async function loader () {
-  
-  const url = `${process.env.API_URL}/guitars?populate=image`
-  const answer = await fetch(url)
-  const result = await answer.json()
+  const guitars = await getGuitars()
 
-  console.log(`
-    🪵\n
-    The url: ${url} \n
-    Fetched: \n
-    ${result}
-    🪵\n
-  `)
-
-  return result
+  return guitars
 }
 
 
