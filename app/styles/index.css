@@ -84,6 +84,6 @@
   }
 
   .header .navegacion a:hover, 
-  .active {
+  .header .active {
     background-color: var(--primary);
   }
