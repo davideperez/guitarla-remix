@@ -16,7 +16,6 @@ export default function Post ({post}) {
                 <p className="summary">{content}</p>
                 <Link className="link" to={`/posts/${url}`}>Read Post</Link>
             </div>
-            
         </article>
   )
 }

@@ -15,7 +15,8 @@
 }
 
 .post {
-
+    max-width: 80rem;
+    margin: 0 auto;
 }
 
 .post .content {
@@ -39,3 +40,8 @@
     font-size: 1.6rem;
     color: var(--primary);
 }
+
+.post .text {
+    white-space: pre-wrap;
+}
+

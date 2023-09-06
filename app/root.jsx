@@ -16,7 +16,7 @@ export function meta() {
     return (
         [
             {charset: 'utf-8'},
-            {title: 'Guitar LA - Remix'},
+            {title: 'Guitar LA | Remix'},
             {viewport: "width=device-width,intial-scale=1"}
         ]
     )

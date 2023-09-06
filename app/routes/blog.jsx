@@ -12,6 +12,13 @@ export function links () {
   ]
 }
 
+export function meta () {
+  return [
+    {title:'Guitar LA | Our Blog'},
+    {description:'Guitar LA, Blog of music and guitar sale.'},
+  ]
+}
+
 export async function loader() {
   const posts = await getPosts()
   return posts.data

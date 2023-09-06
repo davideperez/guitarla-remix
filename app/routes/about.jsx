@@ -3,7 +3,7 @@ import styles from '~/styles/about.css'
 
 export function meta () {
   return [
-      {title:'Guitar LA - About'},
+      {title:'Guitar LA | About'},
       {description: 'Guitars shop, music blog.'}
     ]
 }

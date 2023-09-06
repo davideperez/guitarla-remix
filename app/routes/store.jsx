@@ -5,8 +5,8 @@ import styles from "~/styles/guitars.css"
 
 export function meta() {
   return [
-    {title:'Guitar LA - Guitar Store'},
-    {description:'Guitar LA - Our Guitars Collection.'},
+    {title:'Guitar LA | Guitar Store'},
+    {description:'Guitar LA | Our Guitars Collection.'},
 
   ]
 }

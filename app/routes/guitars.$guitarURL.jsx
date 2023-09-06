@@ -49,13 +49,13 @@ export function meta ({ data }) {
   
   if(!data) {
     return [
-      {title: 'Guitar LA - Guitar not found.'},
+      {title: 'Guitar LA | Guitar not found.'},
       {description:`Guitars, guitar sales, guitar not found.`},
     ]
   }
 
   return [
-    {title:`Guitar LA - ${data.data[0].attributes.name}`},
+    {title:`Guitar LA | ${data.data[0].attributes.name}`},
     {description:`Guitars, guitar sales, ${data.data[0].attributes.name} guitar.`},
   ]
 }
