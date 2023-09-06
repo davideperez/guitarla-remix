@@ -1,8 +1,61 @@
-import { useLoaderData } from "@remix-run/react"
+import {
+  useLoaderData,
+  useRouteError,
+  isRouteErrorResponse,
+  Link
+} from "@remix-run/react"
 import { getGuitar } from "~/models/guitars.server"
 import styles from "~/styles/guitars.css"
 
-export function meta ({data}) {
+/** Error Handling */
+
+export function ErrorBoundary () {
+  const error = useRouteError()
+
+  if(isRouteErrorResponse(error)) {
+      return (
+        <main>
+          <p className='error'>{error.status}{error.statusText}</p>
+          <Link className='error-link' to='/'>Perhaps you want go back to Home.</Link>
+        </main>
+      )
+  }
+
+  return (
+    <main>
+        <p className='error'>{error.status}{error.statusText}</p>
+        <Link className='error-link' to='/'>Perhaps you want go back to Home.</Link>
+    </main>
+  )
+}
+
+export async function loader({request, params}){
+  const { guitarURL } = params
+  
+  const guitar = await getGuitar(guitarURL)
+  
+  if(guitar.data.length === 0) {
+    throw new Response('', {
+      status: 404,
+      statusText: ' Guitar not found.',
+      data: {}
+    })
+  }
+  
+  return guitar
+}
+
+export function meta ({ data }) {
+  
+  console.log(data)
+  console.log('prueba')
+  if(!data) {
+    return [
+      {title: 'Guitar LA - Guitar not found.'},
+      {description:`Guitars, guitar sales, guitar not found.`},
+    ]
+  }
+
   return [
     {title:`Guitar LA - ${data.data[0].attributes.name}`},
     {description:`Guitars, guitar sales, ${data.data[0].attributes.name} guitar.`},
@@ -18,13 +71,6 @@ export function links () {
   ]
 }
 
-export async function loader({request, params}){
-  const { guitarURL } = params
-
-  const guitar = await getGuitar(guitarURL)
-
-  return guitar
-}
 
 export default function Guitar () {
   const guitar = useLoaderData()
