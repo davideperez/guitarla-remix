@@ -1,4 +1,6 @@
 import { Link } from "@remix-run/react"
+import { formatDate } from "~/utils/helpers.js"
+
 
 export default function Post ({post}) {
   
@@ -10,7 +12,7 @@ export default function Post ({post}) {
             <img className='image' src={imageURL} alt={`blog of ${title}`} />
             <div className="content">
                 <h3>{title}</h3>
-                <p className="date">{publishedAt}</p>
+                <p className="date">{formatDate(publishedAt)}</p>
                 <p className="summary">{content}</p>
                 <Link className="link" to={`/posts/${url}`}>Read Post</Link>
             </div>

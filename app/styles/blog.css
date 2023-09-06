@@ -34,3 +34,8 @@
     -webkit-line-clamp: 4;
     overflow: hidden ;
 }
+
+.post .date {
+    font-size: 1.6rem;
+    color: var(--primary);
+}
