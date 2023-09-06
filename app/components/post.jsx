@@ -12,7 +12,7 @@ export default function Post ({post}) {
                 <h3>{title}</h3>
                 <p className="date">{publishedAt}</p>
                 <p className="summary">{content}</p>
-                <Link className="link" to={`/post/${url}`}>Read Post</Link>
+                <Link className="link" to={`/posts/${url}`}>Read Post</Link>
             </div>
             
         </article>
