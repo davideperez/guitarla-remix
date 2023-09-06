@@ -47,8 +47,6 @@ export async function loader({request, params}){
 
 export function meta ({ data }) {
   
-  console.log(data)
-  console.log('prueba')
   if(!data) {
     return [
       {title: 'Guitar LA - Guitar not found.'},

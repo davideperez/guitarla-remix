@@ -14,7 +14,6 @@ export function links () {
 
 export async function loader() {
   const posts = await getPosts()
-  console.log(posts)
   return posts.data
 }
 
