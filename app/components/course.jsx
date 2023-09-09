@@ -1,7 +1,6 @@
 export default function Course ({course}) {
     const { title, content, image } = course
 
-    console.log(image)
     return (
     <section className="course">
         <style jsx="true">

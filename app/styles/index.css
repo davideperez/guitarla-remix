@@ -165,9 +165,3 @@
 .link:hover {
   background-color: var(--primary);
 }
-
-/** Utilities */
-
-.mt-3 {
-  margin-top: 3rem;
-}
