@@ -63,6 +63,7 @@
 
   .header .navegacion {
     display: flex;
+    align-items: center;
     gap: 2rem;
     margin-top: 5rem;
   }
@@ -70,6 +71,10 @@
     .header .navegacion {
       margin-top: 0;
     }
+  }
+
+  .header .navegacion img {
+    width: 3rem;
   }
 
   .header .navegacion a {
@@ -120,6 +125,10 @@
     font-size: 2.8rem;
     text-decoration: none;
     font-weight: 700;
+  }
+
+  .footer .navegacion a:last-of-type {
+    display: none;
   }
 
   .footer .copyright {
