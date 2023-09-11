@@ -5,7 +5,6 @@ import {
   Link
 } from "@remix-run/react"
 import { getGuitar } from "~/models/guitars.server"
-import styles from "~/styles/guitars.css"
 
 /** Error Handling */
 
@@ -60,29 +59,20 @@ export function meta ({ data }) {
   ]
 }
 
-export function links () {
-  return [
-    {
-      rel: 'stylesheet',
-      href: styles
-    }
-  ]
-}
-
-
 export default function Guitar () {
+  
   const guitar = useLoaderData()
-
   const { name, description, image, price } = guitar.data[0].attributes
   
   return (
-    <main className="container guitar">
+    <div className="guitar">
       <img className='image' src={image.data.attributes.url} alt={`${name} "guitar"`} />
+      
       <div className="content">
         <h3>{name}</h3>
         <p className="text">{description}</p>
         <p className="price">${price}</p>
       </div>
-    </main>
+    </div>
   )
 }
