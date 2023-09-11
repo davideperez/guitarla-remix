@@ -1,0 +1,20 @@
+.content {
+    display: grid;
+    gap: 5rem;
+
+}
+@media (min-width: 768px) {
+    .content {
+        grid-template-columns: 3fr 2fr;
+    }
+}
+
+.cart {
+    padding: 3rem;
+}
+
+.summary {
+    background-color: #f9fafb;
+    padding: 3rem;
+    border-radius: 1rem;
+}
