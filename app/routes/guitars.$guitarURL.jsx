@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {
   useLoaderData,
   useRouteError,
@@ -60,7 +61,8 @@ export function meta ({ data }) {
 }
 
 export default function Guitar () {
-  
+  const [ amount, setAmount ] = useState(0)
+
   const guitar = useLoaderData()
   const { name, description, image, price } = guitar.data[0].attributes
   
@@ -76,7 +78,10 @@ export default function Guitar () {
         <form className="form">
           <label htmlFor="amount">Amount</label>
 
-          <select name="" id="amount">
+          <select 
+            onChange={ e => setAmount(+e.target.value)}
+            id="amount"
+          >
             <option value="">-- Select --</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -85,7 +90,10 @@ export default function Guitar () {
             <option value="5">5</option>
           </select>
 
-          <input type="submit" />
+          <input 
+            type="submit"
+            value='Add to cart'
+          />
         </form>
       </div>
     </div>
