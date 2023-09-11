@@ -9,7 +9,12 @@ export const links = () => {
     ]
 }
 
-export const meta () => {}
+export const meta = () => {
+    return [
+        {title: 'Guitar LA - Shopping Cart'},
+        {description: 'Guitar sales, music, blog, shopping cart, store,'}
+    ]
+}
 
 const Cart = () => {
   return (
