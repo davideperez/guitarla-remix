@@ -65,7 +65,27 @@ export default function Guitar () {
 
   const guitar = useLoaderData()
   const { name, description, image, price } = guitar.data[0].attributes
+
+  const selectedGuitar = {
+    id: guitar.data[0].id,
+    image: image.data.attributes.url,
+    name,
+    price,
+    amount
+  }
   
+  console.log(selectedGuitar)
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if (amount < 1) {
+      alert("You must select at least 1 unit to add to the cart.")
+    }
+
+
+  }
+
   return (
     <div className="guitar">
       <img className='image' src={image.data.attributes.url} alt={`${name} "guitar"`} />
@@ -75,14 +95,17 @@ export default function Guitar () {
         <p className="text">{description}</p>
         <p className="price">${price}</p>
 
-        <form className="form">
+        <form 
+          onSubmit={handleSubmit}
+          className="form"
+        >
           <label htmlFor="amount">Amount</label>
 
           <select 
             onChange={ e => setAmount(+e.target.value)}
             id="amount"
           >
-            <option value="">-- Select --</option>
+            <option value="0">-- Select --</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
