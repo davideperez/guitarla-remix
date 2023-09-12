@@ -14,7 +14,8 @@ const Blog = () => {
 
   return (
     <main className="container">
-        <Outlet />
+        <Outlet 
+        />
     </main>
   )
 }

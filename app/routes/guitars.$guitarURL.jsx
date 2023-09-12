@@ -3,7 +3,8 @@ import {
   useLoaderData,
   useRouteError,
   isRouteErrorResponse,
-  Link
+  Link,
+  useOutletContext
 } from "@remix-run/react"
 import { getGuitar } from "~/models/guitars.server"
 
@@ -61,11 +62,11 @@ export function meta ({ data }) {
 }
 
 export default function Guitar () {
-  const [ amount, setAmount ] = useState(0)
 
+  const { addToCart } = useOutletContext()
+  const [ amount, setAmount ] = useState(0)
   const guitar = useLoaderData()
   const { name, description, image, price } = guitar.data[0].attributes
-
   const selectedGuitar = {
     id: guitar.data[0].id,
     image: image.data.attributes.url,
@@ -73,8 +74,6 @@ export default function Guitar () {
     price,
     amount
   }
-  
-  console.log(selectedGuitar)
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -83,7 +82,7 @@ export default function Guitar () {
       alert("You must select at least 1 unit to add to the cart.")
     }
 
-
+    addToCart(selectedGuitar)
   }
 
   return (
