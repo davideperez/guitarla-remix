@@ -54,8 +54,28 @@ export function links () {
 export default function App () {
     const [ cart, setCart ] = useState([])
 
+    
     const addToCart = guitar => {
-        setCart(...cart, guitar)
+        
+        if (cart.some(guitarOnState  => guitarOnState.id === guitar.id )) {
+            //Iterate over the array and get the duplicate 
+            const updatedCart = cart.map( guitarOnState => {
+                if (guitarOnState.id === guitar.id) {
+                    //Update amount.
+                    guitarOnState.amount += guitar.amount
+                }
+
+                return guitarOnState
+            
+            })
+            
+            //Adds to the cart.
+            setCart(updatedCart)
+
+        } else {
+            //Adds
+            setCart([...cart, guitar])
+        }
     }
 
     return (
