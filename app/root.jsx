@@ -62,7 +62,7 @@ export default function App () {
             const updatedCart = cart.map( guitarOnState => {
                 if (guitarOnState.id === guitar.id) {
                     //Update amount.
-                    guitarOnState.amount += guitar.amount
+                    guitarOnState.amount = guitar.amount
                 }
 
                 return guitarOnState

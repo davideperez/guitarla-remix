@@ -35,7 +35,19 @@ const Cart = () => {
                             </div>
                             <div>
                                 <p className='name'>{product.name}</p>
-                                <p className='amount'>Amount: {product.amount}</p>
+                                <p className='amount'>Amount:</p>
+                                <select 
+                                    value={product.amount}
+                                    className='select'
+                                >
+                                    <option value="0">-- Select --</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+
                                 <p className='price'>$ <span>{product.price}</span></p>
                                 <p className='subtotal'>Subtotal $ <span>{product.price * product.amount}</span></p>
                             </div>
