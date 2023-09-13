@@ -69,7 +69,7 @@ export default function Guitar () {
   const { name, description, image, price } = guitar.data[0].attributes
   const selectedGuitar = {
     id: guitar.data[0].id,
-    image: image.data.attributes.formats.thumbnail.url,//image.data.attributes.url,
+    image: image.data.attributes.formats.small.url,//image.data.attributes.url,
     name,
     price,
     amount
