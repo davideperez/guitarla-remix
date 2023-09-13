@@ -21,6 +21,7 @@
     align-items: center;
     padding: 3rem 0;
     border-bottom: 1px solid #cfcfcf;
+    position: relative;
 }
 
 .product:last-of-type {
@@ -67,3 +68,13 @@
     top: 3rem;
 }
 
+.btn_delete {
+    all: unset;
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+}
+
+.btn_delete:hover {
+    cursor: pointer;
+}

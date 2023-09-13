@@ -87,6 +87,11 @@ export default function App () {
             //this return isnt the fanciest but a teranry is perhaps worst.
             return guitarFromState
         })
+        setCart(updatedCart)
+    }
+
+    const deleteGuitar = id => {
+        const updatedCart = cart.filter( guitarFromState => guitarFromState.id !== id)
 
         setCart(updatedCart)
     }
@@ -97,7 +102,8 @@ export default function App () {
                 context={{
                     addToCart,
                     cart,
-                    updateAmount
+                    updateAmount,
+                    deleteGuitar
                 }}
             />
         </Document>
