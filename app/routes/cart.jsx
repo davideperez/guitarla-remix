@@ -35,6 +35,7 @@ const Cart = () => {
                             </div>
                             <div>
                                 <p className='name'>{product.name}</p>
+                                <p className='amount'>Amount: {product.amount}</p>
                                 <p className='price'>$ <span>{product.price}</span></p>
                                 <p className='subtotal'>Subtotal $ <span>{product.price * product.amount}</span></p>
                             </div>
