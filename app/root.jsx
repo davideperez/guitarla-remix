@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
     Meta,
     Links,
@@ -52,7 +52,16 @@ export function links () {
 }
 
 export default function App () {
-    const [ cart, setCart ] = useState([])
+    
+    //Getting LocalStorage cart to pass it as the default value to the cart useState.
+    const cartLS = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('cart')) ?? [] : null
+    
+    const [ cart, setCart ] = useState(cartLS)
+
+    //Updates the cart into localstorage
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
 
     
     const addToCart = guitar => {

@@ -34,8 +34,8 @@ const Cart = () => {
         <div className="content">
             <div className='cart'>
                 <h2>Items</h2>
-                {cart.lenght === 0 ? 'Cart is empty.' : (
-                    cart.map( product => (
+                {cart?.lenght === 0 ? 'Cart is empty.' : (
+                    cart?.map( product => (
                         <div key={product.id} className='product'>
                             <div>
                                 <img src={product.image} alt={`The ${product.name} guitar.`} />
