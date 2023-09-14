@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { ClientOnly } from 'remix-utils'
 import { useOutletContext } from '@remix-run/react'
 import styles from '~/styles/cart.css'
 
@@ -29,56 +30,60 @@ const Cart = () => {
     }, [cart])
 
   return (
-    <main className="conainer">
-        <h1 className="heading">Shopping Cart</h1>
-        <div className="content">
-            <div className='cart'>
-                <h2>Items</h2>
-                {cart?.lenght === 0 ? 'Cart is empty.' : (
-                    cart?.map( product => (
-                        <div key={product.id} className='product'>
-                            <div>
-                                <img src={product.image} alt={`The ${product.name} guitar.`} />
-                            </div>
-                            <div>
-                                <p className='name'>{product.name}</p>
-                                <p className='amount'>Amount:</p>
-                                <select 
-                                    value={product.amount}
-                                    className='select'
-                                    onChange={ e => updateAmount({
-                                        amount: +e.target.value,
-                                        id: product.id
-                                    })}
-                                >
-                                    <option value="0">-- Select --</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
+    <ClientOnly fallback={'Loading..'}>
+        { () => (
+            <main className="conainer">
+                <h1 className="heading">Shopping Cart</h1>
+                <div className="content">
+                    <div className='cart'>
+                        <h2>Items</h2>
+                        {cart?.lenght === 0 ? 'Cart is empty.' : (
+                            cart?.map( product => (
+                                <div key={product.id} className='product'>
+                                    <div>
+                                        <img src={product.image} alt={`The ${product.name} guitar.`} />
+                                    </div>
+                                    <div>
+                                        <p className='name'>{product.name}</p>
+                                        <p className='amount'>Amount:</p>
+                                        <select 
+                                            value={product.amount}
+                                            className='select'
+                                            onChange={ e => updateAmount({
+                                                amount: +e.target.value,
+                                                id: product.id
+                                            })}
+                                            >
+                                            <option value="0">-- Select --</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
 
-                                <p className='price'>$ <span>{product.price}</span></p>
-                                <p className='subtotal'>Subtotal $ <span>{product.price * product.amount}</span></p>
-                            </div>
-                            <button
-                                type='button'
-                                className='btn_delete'
-                                onClick={ () => deleteGuitar(product.id) }
-                            >X</button>
-                        </div>
-                    ))
-                )
-
-                }
-            </div>
-            <aside className="summary">
-                <h3>Summary</h3>
-                <p>Grand Total: ${total} </p>
-            </aside>
-        </div>
-    </main>
+                                        <p className='price'>$ <span>{product.price}</span></p>
+                                        <p className='subtotal'>Subtotal $ <span>{product.price * product.amount}</span></p>
+                                    </div>
+                                    <button
+                                        type='button'
+                                        className='btn_delete'
+                                        onClick={ () => deleteGuitar(product.id) }
+                                    >X</button>
+                                </div>
+                            ))
+                        )
+                        
+                        }
+                    </div>
+                    <aside className="summary">
+                        <h3>Summary</h3>
+                        <p>Grand Total: ${total} </p>
+                    </aside>
+                </div>
+            </main>
+        )}
+    </ClientOnly>
   )
 }
 
